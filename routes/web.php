@@ -41,3 +41,7 @@ Route::get('/excercise_list', function () {
     return view('excercise_list');
 });
 
+Route::get('/edit_template', function () {
+    return view('edit_template');
+});
+
