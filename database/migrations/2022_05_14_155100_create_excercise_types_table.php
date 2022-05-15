@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(GymUser::class);
             $table->string('name');
             $table->string('equipment');
-            $table->set('trained_body_part',['schiena','petto','gambe','spalle','tricipiti','bicipiti','addome','polpacci','quadricipiti','femorali']);
+            $table->set('trained_body_part', ['addome', 'bicipiti', 'femorali', 'gambe', 'petto', 'polpacci', 'quadricipiti', 'schiena', 'spalle', 'tricipiti']);
         });
     }
 

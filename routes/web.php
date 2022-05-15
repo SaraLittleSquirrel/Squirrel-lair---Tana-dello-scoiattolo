@@ -17,10 +17,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/programmi', function () {
-    return view('programmi');
+Route::get('/programs', function () {
+    return view('programs');
 });
 
-Route::get('/scheda', function () {
-    return view('scheda');
+Route::get('/template', function () {
+    return view('template');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/sign_up', function () {
+    return view('sign_up');
+});
+
+Route::get('/insert_excercise', function () {
+    return view('insert_excercise');
+});
+
+Route::get('/excercise_list', function () {
+    return view('excercise_list');
+});
+
