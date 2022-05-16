@@ -45,3 +45,10 @@ Route::get('/edit_template', function () {
     return view('edit_template');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/questions', function () {
+    return view('questions');
+});

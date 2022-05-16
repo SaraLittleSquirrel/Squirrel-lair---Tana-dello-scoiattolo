@@ -29,7 +29,7 @@
                         <a class="nav-link " href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Chi siamo</a>
+                        <a class="nav-link" href="#">F.A.Q.</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cerca schede</a>
