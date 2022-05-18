@@ -6,7 +6,7 @@ Le mie schede
 
 @section('content')
 <div class="row py-2">
-    <p class="h1 text-center">Le mie schede</p>
+    <p class="h1 text-center">Le schede di {{ $gym_user->username }} </p> 
 </div>
 <div class="row">
     <div class="col">

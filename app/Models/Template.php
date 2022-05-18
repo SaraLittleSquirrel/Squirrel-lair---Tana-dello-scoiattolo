@@ -9,7 +9,7 @@ class Template extends Model
 {
     use HasFactory;
 
-    public function gym_user()
+    public function gymUser()
     {
         return $this->belongsTo(GymUser::class);
     }

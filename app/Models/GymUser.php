@@ -14,7 +14,7 @@ class GymUser extends Model
         return $this->hasMany(Template::class);
     }
 
-    public function excercise_types()
+    public function excerciseTypes()
     {
         return $this->hasMany(ExcerciseType::class);
     }

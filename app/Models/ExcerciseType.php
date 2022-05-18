@@ -14,7 +14,7 @@ class ExcerciseType extends Model
         return $this->hasMany(Excercise::class);
     }
 
-    public function gym_users()
+    public function gymUser()
     {
         return $this->belongsTo(GymUser::class);
     }

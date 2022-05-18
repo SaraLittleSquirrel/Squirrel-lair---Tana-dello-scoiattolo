@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_public');
             $table->foreignIdFor(GymUser::class);
+            $table->string('description');
         });
     }
 

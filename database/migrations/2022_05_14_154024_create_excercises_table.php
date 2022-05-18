@@ -20,15 +20,15 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignIdFor(Template::class);
             $table->foreignIdFor(ExcerciseType::class);
-            $table->set('day',[1,2,3,4,5,6,7]);
+            $table->enum('day',[1,2,3,4,5,6,7]);
             $table->integer('sets');
-            $table->set('progression',['wave','doppia']);
+            $table->enum('progression',['wave','doppia']);
             $table->integer('rep_min');
             $table->integer('rep_max');
             $table->integer('recovery_min');
             $table->integer('recovery_max');
             $table->integer('load');
-            $table->set('load_type',['%RPE','RIR','kg']);
+            $table->enum('load_type',['%RPE','RIR','%RM','kg']);
         });
     }
 

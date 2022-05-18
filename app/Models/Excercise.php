@@ -9,12 +9,12 @@ class Excercise extends Model
 {
     use HasFactory;
 
-    public function templates()
+    public function template()
     {
         return $this->belongsTo(Template::class);
     }
 
-    public function excercise_type()
+    public function excerciseType()
     {
         return $this->belongsTo(ExcerciseType::class);
     }
