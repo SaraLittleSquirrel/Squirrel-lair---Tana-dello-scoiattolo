@@ -1,6 +1,6 @@
 <p><h1>LA TANA DELLO SCOIATTOLO</h1></p>
 
-<img src="images/logo.png">
+<img src="public/images/logo.png" align=center width=50% height=50%>
 
 A noi piace sollevare ghisa!!
 
