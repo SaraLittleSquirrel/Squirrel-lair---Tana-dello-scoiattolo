@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,8 +19,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
+        //'email',
         'password',
     ];
 
@@ -41,4 +42,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function templates()
+    {
+        return $this->hasMany(Template::class);
+    }
+
+    public function excerciseTypes()
+    {
+        return $this->hasMany(ExcerciseType::class);
+    }
+
+    protected function password(): Attribute{
+        return Attribute::make(
+            set: fn ($value) => bcrypt($value)
+        );
+    }
 }

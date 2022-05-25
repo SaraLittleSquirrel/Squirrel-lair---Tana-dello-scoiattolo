@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <title>
         @yield('title')
     </title>
@@ -18,7 +18,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt="logo" width="70" height="70"></a>
+            <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt="logo" width="70"
+                    height="70"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,9 +41,29 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
+                    @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome, user</a>
+                        <a class="nav-link" href="#">Welcome, {{auth()->user()->username}}</a>
                     </li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{route('login.logout')}}">
+                            @csrf
+                            <div class="nav-link">
+                                <button type="submit" class="btn btn-link">Logout</button>
+                            </div>
+                        </form>
+                        
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('register.index')}}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login.login')}}">Login</a>
+                    </li>
+
+                    @endauth
+
                 </ul>
 
             </div>

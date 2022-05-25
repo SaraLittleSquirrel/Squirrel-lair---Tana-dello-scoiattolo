@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GymUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TemplateController extends Controller
 {
     //
-    public function index(){
-        $gym_user = GymUser::find(1);
-        return view('templates',['gym_user'=>$gym_user]);
+    public function index($user_id){
+        $user = User::findOrFail($user_id);
+        return view('templates.index',['user'=>$user]);
     } 
 
 }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Excercise;
 use App\Models\ExcerciseType;
-use App\Models\GymUser;
+use App\Models\User;
 use App\Models\Template;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,7 +18,7 @@ class TemplateSeeder extends Seeder
      */
     public function run()
     {
-        $user = GymUser::factory()->create();
+        $user = User::factory()->create();
 
         $templates = Template::factory()->count(5)->for($user)->create();
 

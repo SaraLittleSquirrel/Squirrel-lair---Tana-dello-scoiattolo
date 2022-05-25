@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::resource('templates',TemplateController::class);
+Route::resource('user.templates',TemplateController::class);
 
 Route::get('/programs', function () {
     return view('programs');
@@ -28,13 +30,16 @@ Route::get('/template', function () {
     return view('template');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 
-Route::get('/sign_up', function () {
-    return view('sign_up');
-});
+Route::post('login', [LoginController::class, 'login'])->name('login.login')->middleware('guest');
+
+Route::post('logout', [LoginController::class, 'logout'])->name('login.logout')->middleware('auth');
+
+Route::get('register', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
+
+Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+
 
 Route::get('/insert_excercise', function () {
     return view('insert_excercise');
@@ -48,9 +53,9 @@ Route::get('/edit_template', function () {
     return view('edit_template');
 });
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/questions', function () {
     return view('questions');

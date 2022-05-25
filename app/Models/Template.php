@@ -9,9 +9,9 @@ class Template extends Model
 {
     use HasFactory;
 
-    public function gymUser()
+    public function user()
     {
-        return $this->belongsTo(GymUser::class);
+        return $this->belongsTo(User::class);
     }
 
     public function excercises()
