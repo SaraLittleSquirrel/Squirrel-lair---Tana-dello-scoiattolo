@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExcerciseTypeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\RegisterController;
@@ -22,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('user.templates',TemplateController::class);
 
-Route::get('/programs', function () {
-    return view('programs');
-});
+Route::resource('user.excercisetypes',ExcerciseTypeController::class);
 
 Route::get('/template', function () {
     return view('template');
@@ -59,4 +58,4 @@ Route::get('/', function () {
 
 Route::get('/questions', function () {
     return view('questions');
-});
+})->name('questions');

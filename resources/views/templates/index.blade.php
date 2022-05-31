@@ -5,6 +5,9 @@ Le mie schede
 @endsection
 
 @section('content')
+@php
+use Illuminate\Support\Facades\DB;
+@endphp
 <div class="row py-2">
     <p class="h1 text-center">Le schede di {{ $user->username }} </p>
 </div>
@@ -28,11 +31,14 @@ Le mie schede
                 @foreach ($user->templates as $template)
                 <tr>
                     <th scope="row">{{$count++}}</th>
-                    <td><a href="#" class="link-dark">{{$template->name}}</a></td>
-                    <td>#giorni</td>
+                    <td><a href="{{route('user.templates.show', ['user' => auth()->user(), 'template'=>$template])}}"
+                            class="link-dark">{{$template->name}}</a></td>
+                            
+                    <td>{{DB::table('excercises')->select('day')->where('template_id',
+                        $template->id)->distinct()->get()->count()}}</td>
                     <td>{{$template->description}}</td>
                     <td>{{$template->is_public? 'pubblica':'privata'}}</td>
-                    <td><a href="#"><img src="images/icons/trash3.svg" alt="delete" /></a></td>
+                    <td><a href="#"><img src="{{asset('images/icons/trash3.svg')}}" alt="delete" /></a></td>
                 </tr>
                 @endforeach
 

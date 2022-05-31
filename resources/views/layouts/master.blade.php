@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt="logo" width="70"
+            <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" class="logo" alt="logo" width="70"
                     height="70"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,20 +27,48 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="#">Home</a>
+                        <a class="nav-link " href="{{route('home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">F.A.Q.</a>
+                        <a class="nav-link" href="{{route('questions')}}">F.A.Q.</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cerca schede</a>
                     </li>
+                    @auth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Le mie schede</a>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdown-schede"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Esercizi
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown-schede">
+                                <li><a class="dropdown-item" href="{{route('user.excercisetypes.index',
+                                    auth()->user())}}">I miei esercizi</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.excercisetypes.create',auth()->user())}}">Aggiungi
+                                        tipo di esercizio</a></li>
+
+                            </ul>
+                        </div>
                     </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdown-esercizi"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Schede
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown-esercizi">
+                                <li><a class="dropdown-item" href="{{route('user.templates.index',
+                                    auth()->user())}}">Le mie schede</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.templates.create',auth()->user())}}">Aggiungi scheda</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    @endauth
                 </ul>
 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
                     @auth
                     <li class="nav-item">
                         <a class="nav-link" href="#">Welcome, {{auth()->user()->username}}</a>
@@ -52,7 +80,7 @@
                                 <button type="submit" class="btn btn-link">Logout</button>
                             </div>
                         </form>
-                        
+
                     </li>
                     @else
                     <li class="nav-item">
