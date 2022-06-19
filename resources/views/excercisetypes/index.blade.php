@@ -32,7 +32,11 @@ I miei esercizi
                     
                     <td>{{$excercisetype->equipment}}</td>
                     <td>{{$excercisetype->trained_body_part }}</td>
-                    <td><a href="#"><img src="{{asset('images/icons/trash3.svg')}}" alt="delete" /></a></td>
+                    <td>
+                        <a href={{route("excercisetype.confirmDelete", ['user'=>auth()->user(),'excercisetype'=>$excercisetype])}} class="btn btn-link">
+                            <img src="{{asset('images/icons/trash3.svg')}}" alt="delete">
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

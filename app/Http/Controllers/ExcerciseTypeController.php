@@ -38,4 +38,17 @@ class ExcerciseTypeController extends Controller
 
         return (redirect(route("user.excercisetypes.index",auth()->user())));
     }
+
+    public function destroy(Request $request, $user_id, $exercisetype_id)
+    {
+        ExcerciseType::find($exercisetype_id)->delete();
+        
+        return (redirect(route("user.excercisetypes.index",auth()->user())));
+    }
+
+    public function confirmDelete($user_id, $exercisetype_id)
+    {
+
+        return view('excercisetypes.delete')->with('excercisetype',ExcerciseType::find($exercisetype_id));
+    }
 }

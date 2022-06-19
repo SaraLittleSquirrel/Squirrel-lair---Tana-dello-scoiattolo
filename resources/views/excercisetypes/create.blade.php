@@ -15,6 +15,7 @@ Inserisci esercizio
             <div class="input-group mb-3">
                 <span class="input-group-text" id="excercise_name_text">Nome esercizio</span>
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="excercise_name_text">
+                {{-- sistemare validazione con error (vedi index) --}}
             </div>
 
             <div class="input-group mb-3">

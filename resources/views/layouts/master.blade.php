@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -18,8 +20,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" class="logo" alt="logo" width="70"
-                    height="70"></a>
+            <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" class="logo"
+                    alt="logo" width="70" height="70"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,7 +47,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdown-schede">
                                 <li><a class="dropdown-item" href="{{route('user.excercisetypes.index',
                                     auth()->user())}}">I miei esercizi</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.excercisetypes.create',auth()->user())}}">Aggiungi
+                                <li><a class="dropdown-item"
+                                        href="{{route('user.excercisetypes.create',auth()->user())}}">Aggiungi
                                         tipo di esercizio</a></li>
 
                             </ul>
@@ -60,7 +63,9 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdown-esercizi">
                                 <li><a class="dropdown-item" href="{{route('user.templates.index',
                                     auth()->user())}}">Le mie schede</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.templates.create',auth()->user())}}">Aggiungi scheda</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{{route('user.templates.create',auth()->user())}}">Aggiungi scheda</a>
+                                </li>
 
                             </ul>
                         </div>

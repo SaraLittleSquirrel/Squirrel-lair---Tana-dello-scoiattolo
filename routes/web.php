@@ -39,14 +39,7 @@ Route::get('register', [RegisterController::class, 'index'])->name('register.ind
 
 Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 
-
-Route::get('/insert_excercise', function () {
-    return view('insert_excercise');
-});
-
-Route::get('/excercise_list', function () {
-    return view('excercise_list');
-});
+Route::get('user/{user}/excercisetypes/{excercisetype}/delete', [ExcerciseTypeController::class, 'confirmDelete'])->name('excercisetype.confirmDelete')->middleware('auth');
 
 Route::get('/edit_template', function () {
     return view('edit_template');
