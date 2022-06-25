@@ -5,10 +5,10 @@ F.A.Q.
 @endsection
 
 @section('content')
-<div class="row mb-2">
+<div class="row-fluid mb-3">
     <div class="display-2">F.A.Q.</div>
 </div>
-<div class="row">
+<div class="row-fluid">
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
@@ -47,4 +47,5 @@ F.A.Q.
             </div>
         </div>
     </div>
-    @endsection
+</div>    
+@endsection

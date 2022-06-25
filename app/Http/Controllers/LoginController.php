@@ -14,9 +14,8 @@ class LoginController extends Controller
         return (view("login.index"));
     }
 
-    public function login()
+    public function login() //autentica l'utente
     {
-        //autentica l'utente
 
         $attributes = request()->validate(
             [
@@ -25,8 +24,8 @@ class LoginController extends Controller
             ]
         );
 
-        if(auth()->attempt($attributes)){
-            return redirect(route('user.templates.index', ['user'=>auth()->user()->id]));
+        if (auth()->attempt($attributes)) {
+            return redirect(route('user.templates.index', ['user' => auth()->user()->id]));
         }
 
         throw ValidationException::withMessages([
@@ -34,9 +33,8 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout(){
-        //logout utente
-
+    public function logout()    //logout utente
+    {
         auth()->logout();
 
         return redirect(route('home'));

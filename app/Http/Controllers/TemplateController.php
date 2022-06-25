@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Excercise;
 use App\Models\Template;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,6 +47,35 @@ class TemplateController extends Controller
 
     public function show($user_id, $template_id)
     {
-        return view('templates.show')->with('template', Template::find($template_id));
+        return view('templates.show')->with('template', Template::find($template_id))
+        ->with('is_owner', auth()->user()==Template::find($template_id)->user);
+    }
+
+    public function destroy(Request $request, $user_id, $template_id)
+    {
+        Template::find($template_id)->delete();
+        Excercise::where('template_id',$template_id)->delete();
+        
+        return (redirect(route("user.templates.index",auth()->user())));
+    }
+
+    public function confirmDelete($user_id, $template_id)
+    {
+
+        return view('templates.delete')->with('template',Template::find($template_id));
+    }
+
+    public function searchTemplates(Request $request)
+    {
+        if ($request->has('search')) {
+            $templates = Template::where('is_public', true)->where('name', 'like', '%'.$request->search.'%')->
+            orWhere('description', 'like', '%'.$request->search.'%')->simplePaginate(50)->withQueryString();
+        }
+        else{
+            $templates = Template::where('is_public', true)->simplePaginate(50);
+        }
+        
+
+        return view('templates.search_templates')->with('templates', $templates)->with('search', $request->search);
     }
 }

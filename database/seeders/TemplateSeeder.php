@@ -18,18 +18,19 @@ class TemplateSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create();
+        $users = User::factory()->count(20)->create();
 
-        $templates = Template::factory()->count(5)->for($user)->create();
+        foreach ($users as $user) {
+            $templates = Template::factory()->count(20)->for($user)->create();
 
-        $extypes = ExcerciseType::factory()->count(10)->for($user)->create();
+            $extypes = ExcerciseType::factory()->count(30)->for($user)->create();
 
-        //Scegliere una scheda e un tipo di esercizio
-        for ($i = 0; $i < 20; $i++) {
-            $template = $templates->random();
-            $extype = $extypes->random();
-
-            $excercise = Excercise::factory()->for($template)->for($extype)->create();
+            //Scegliere una scheda e un tipo di esercizio
+            for ($i = 0; $i < 100; $i++) {
+                $template = $templates->random();
+                $extype = $extypes->random();
+                Excercise::factory()->for($template)->for($extype)->create();
+            }
         }
     }
 }

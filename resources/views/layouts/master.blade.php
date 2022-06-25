@@ -12,12 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <title>
         @yield('title')
     </title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
+    {{-- navbar--}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" class="logo"
@@ -35,7 +37,7 @@
                         <a class="nav-link" href="{{route('questions')}}">F.A.Q.</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerca schede</a>
+                        <a class="nav-link" href="{{route('search')}}">Cerca schede</a>
                     </li>
                     @auth
                     <li class="nav-item">
@@ -73,10 +75,11 @@
                     @endauth
                 </ul>
 
-                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                <ul class="navbar-nav ms-auto d-flex align-items-lg-start align-items-xl-center">
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome, {{auth()->user()->username}}</a>
+                        <a class="nav-link" href="{{route('user.templates.index',
+                        auth()->user())}}">Welcome, {{auth()->user()->username}}</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST" action="{{route('login.logout')}}">
@@ -89,7 +92,7 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('register.index')}}">Register</a>
+                        <a class="nav-link" href="{{route('register.index')}}">Registrati</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login.login')}}">Login</a>
@@ -104,9 +107,16 @@
     </nav>
 
     <!-- contenuto della pagina -->
-    <div class="container mt-3 ">
+    <div class="container-fluid mt-3 ">
         @yield('content')
     </div>
+    {{-- footer --}}
+    <footer class="footer mt-auto">
+        <div class="container-fluid">
+            <p>© 2021–2022 La Tana Dello Scoiattolo, Inc. · Webiste logo: Alessia De Rosa, all right reserved.</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

@@ -25,10 +25,6 @@ Route::resource('user.templates',TemplateController::class);
 
 Route::resource('user.excercisetypes',ExcerciseTypeController::class);
 
-Route::get('/template', function () {
-    return view('template');
-});
-
 Route::get('login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 
 Route::post('login', [LoginController::class, 'login'])->name('login.login')->middleware('guest');
@@ -41,6 +37,8 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 
 Route::get('user/{user}/excercisetypes/{excercisetype}/delete', [ExcerciseTypeController::class, 'confirmDelete'])->name('excercisetype.confirmDelete')->middleware('auth');
 
+Route::get('user/{user}/templates/{template}/delete', [TemplateController::class, 'confirmDelete'])->name('template.confirmDelete')->middleware('auth');
+
 Route::get('/edit_template', function () {
     return view('edit_template');
 });
@@ -52,3 +50,11 @@ Route::get('/', function () {
 Route::get('/questions', function () {
     return view('questions');
 })->name('questions');
+
+Route::get('/check_username', [RegisterController::class, 'checkUsername']);
+
+Route::get('/edit', function () {
+    return view('templates/excercises/create');
+});
+
+Route::get('/templates', [TemplateController::class, 'searchTemplates'])->name('search');

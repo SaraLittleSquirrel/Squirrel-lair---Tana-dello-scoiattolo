@@ -9,7 +9,7 @@ Login
     <p class="h1 text-center">Accedi</p>
 </div>
 <div class="row d-flex justify-content-center">
-    <div class="col-4 py-1">
+    <div class="col-8 py-1">
         <form method="POST" action="{{route("login.login")}}">
             @csrf
             <div class="form-floating mb-3">
@@ -37,7 +37,7 @@ Login
                 <label class="form-check-label" for="remember">Mantieni l'accesso</label>
             </div>
 
-            <div class="row pt-2"><button type="submit" class="btn btn-primary btn-block">Accedi</button></div>
+            <div class="row pt-2 px-2"><button type="submit" class="btn btn-primary btn-block">Accedi</button></div>
         </form>
     </div>
 </div>

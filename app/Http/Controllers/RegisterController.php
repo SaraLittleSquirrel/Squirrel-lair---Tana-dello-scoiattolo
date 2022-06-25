@@ -7,7 +7,7 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-    //
+    // salvare utente e password
     public function store(){
 
         $attributes = request()->validate(
@@ -17,17 +17,19 @@ class RegisterController extends Controller
             ]
         );
 
-
         $user=User::create($attributes);
-
         auth()->login($user);
 
-        return('ok');
-
-
+        return(view("home"));
     }
 
+    //pagina per registrarsi
     public function index(){
         return (view("register.index"));
+    }
+
+    //controllo se l'username esiste già
+    public function checkUsername(Request $request){
+        return(User::where('username', $request->username)->exists());
     }
 }
