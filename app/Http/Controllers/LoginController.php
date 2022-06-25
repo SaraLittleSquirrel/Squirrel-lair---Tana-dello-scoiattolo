@@ -7,24 +7,26 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    //
-    public function index()
-    {
-        //mostrare la pagina di login
-        return (view("login.index"));
+    //mostrare la pagina di login
+    public function index(){
+       
+       return (view("login.index"));
+   
     }
 
-    public function login() //autentica l'utente
-    {
+    //autentica l'utente
+    public function login(){
 
         $attributes = request()->validate(
             [
                 'username' => ['required', 'exists:users'],
-                'password' => ['required']
+                'password' => ['required'],
             ]
         );
 
-        if (auth()->attempt($attributes)) {
+        $remember_me = request()->has('remember')? true : false;
+
+        if (auth()->attempt($attributes, $remember_me)) {
             return redirect(route('user.templates.index', ['user' => auth()->user()->id]));
         }
 
@@ -33,8 +35,9 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout()    //logout utente
-    {
+    //logout utente
+    public function logout(){
+        
         auth()->logout();
 
         return redirect(route('home'));

@@ -8,13 +8,13 @@ Cerca Schede
 @php
 use Illuminate\Support\Facades\DB;
 @endphp
-{{-- "le schede degli altri scoiattolini" --}}
+{{-- "le schede degli altri scoiattolini"  + barra di ricerca--}}
 <div class="row py-2 d-flex justify-content-center">
     <div class="col-lg-6 col-md-8">
-        <form action="{{route('search')}}">
+        <form action="{{route('search')}}" id="formTempSearch">
             <div class="input-group">
                 <input type="search" class="form-control" id="search" name="search" placeholder="Cerca schede" value="{{request()->search}}">
-                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
+                <button type="submit" id="searchSubmit" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
             </div>
         </form>
     </div>
@@ -49,6 +49,7 @@ use Illuminate\Support\Facades\DB;
         </div>
     </div>
 </div>
+{{-- frecce per cambiare pagina --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
       <li class="page-item @if ($templates->onFirstPage())
@@ -57,5 +58,7 @@ use Illuminate\Support\Facades\DB;
       <li class="page-item active"><span class="page-link">Page {{$templates->currentPage()}}</span></li>
       <li class="page-item"><a class="page-link" href="{{$templates->nextPageUrl()}}">Next</a></li>
     </ul>
-  </nav>
+</nav>
+
+<script src="{{asset("js/searchtemplate.js")}}"></script>
 @endsection

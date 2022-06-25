@@ -53,6 +53,7 @@ Route::get('/questions', function () {
 
 Route::get('/check_username', [RegisterController::class, 'checkUsername']);
 
+//da eliminare quando finito
 Route::get('/edit', function () {
     return view('templates/excercises/create');
 });
