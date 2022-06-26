@@ -29,9 +29,9 @@ use Illuminate\Support\Facades\DB;
                 </thead>
                 <tbody>
                     @php
-                    $count=1;
+                    $count=$templates->perPage() * ($templates->currentPage() - 1) + 1;;
                     @endphp
-                    @foreach ($user->templates as $template)
+                    @foreach ($templates as $template)
                     <tr>
                         <th scope="row">{{$count++}}</th>
                         <td><a href="{{route('user.templates.show', ['user' => auth()->user(), 'template'=>$template])}}"
@@ -49,4 +49,14 @@ use Illuminate\Support\Facades\DB;
         </div>
     </div>
 </div>
+
+<nav aria-label="Page navigation" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item @if ($templates->onFirstPage())
+          disabled
+      @endif"><a class="page-link" href="{{$templates->previousPageUrl()}}">Previous</a></li>
+      <li class="page-item active"><span class="page-link">Page {{$templates->currentPage()}}</span></li>
+      <li class="page-item"><a class="page-link" href="{{$templates->nextPageUrl()}}">Next</a></li>
+    </ul>
+</nav>
 @endsection

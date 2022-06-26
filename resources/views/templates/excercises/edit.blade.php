@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Nuovo Esercizio
+Modifica Esercizio
 @endsection
 
 @section('content')
@@ -10,16 +10,23 @@ Nuovo Esercizio
 </div>
 <div class="row d-flex justify-content-center">
     <div class="col-8 py-1">
-        <form action="{{route('user.templates.excercises.store',['user' => auth()->user(), 'template'=> $template])}}" method="POST" id="formExInsert">
+        <form action="{{route('user.templates.store',auth()->user())}}" method="POST" id="formExInsert">
             @csrf
             {{-- scegli esercizio --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <label class="input-group-text" for="body-part">Scegli esercizio</label>
                 <select class="form-select @error('excercise') is-invalid @enderror" name="excercise" id="excercise">
                     <option selected disabled value="">Scegli</option>
-                    @foreach ($excercise_types as $excercise_type)
-                        <option value="{{$excercise_type->id}}">{{$excercise_type->name}}</option>
-                    @endforeach
+                    <option value="addome">Addome</option>
+                    <option value="bicipiti">Bicipiti</option>
+                    <option value="femorali">Femorali</option>
+                    <option value="gambe">Gambe</option>
+                    <option value="petto">Petto</option>
+                    <option value="polpacci">Polpacci</option>
+                    <option value="quadricipiti">Quadricipiti</option>
+                    <option value="schiena">Schiena</option>
+                    <option value="spalle">Spalle</option>
+                    <option value="tricipiti">Tricipiti</option>
                 </select>
 
                 <div id="validationServerExcericseFeedback" class="text-danger ms-2">
@@ -165,9 +172,14 @@ Nuovo Esercizio
 
             </div>
 
-            <div class="row pt-2"><button type="submit" class="btn btn-primary btn-block" id="exSubmit">Aggiungi
+            <div class="row pt-2"><button type="submit" class="btn btn-primary btn-block" id="exSubmit">Salva
                     esercizio</button>
             </div>
+    </form>
+    <form action="">
+        <div class="row pt-2"><button type="submit" class="btn btn-danger" id="exDelete">Elimina
+            esercizio</button>
+        </div>
     </form>
 </div>
 </div>

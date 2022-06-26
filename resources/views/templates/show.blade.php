@@ -15,19 +15,20 @@ use App\Models\ExcerciseType;
         <div class=" pb-1 h1 text-center d-flex justify-content-between align-items-center">
             <div class="container-fluid"></div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" id="title_table">
                 {{$template->name}}
             </div>
 
             <div class="container-fluid">
                 <div class="d-flex justify-content-end">
                     <div class="p-3">
-                        <a href="#"><img src="{{asset('images/icons/download.svg')}}" alt=""></a>
+                        <button class="btn" onclick="download()"><i class="bi bi-download"></i></button>
                     </div>
                     @if ($is_owner)
                         
                     <div class="p-3">
-                        <a href="#"><img src="{{asset('images/icons/pencil-square.svg')}}" alt=""></a>
+                        <a class="btn btn-light" href="{{route('user.templates.excercises.create', 
+                        ['user' => auth()->user(), 'template'=>$template])}}"><i class="bi bi-plus-lg"></i></a>
                     </div>
                     <div class="p-3">
                         <a href="{{route("template.confirmDelete",
@@ -52,7 +53,7 @@ use App\Models\ExcerciseType;
     <div class="col-lg-8 col-md-10 col-sm-11">
         <div class="table-responsive-lg">
             <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="table_day_{{$day}}">
                         <thead>
                             <tr>
                                 <th scope="col" colspan="6" class="text-center fs-3 text-primary">

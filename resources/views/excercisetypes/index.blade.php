@@ -20,15 +20,14 @@ I miei esercizi
                         <th scope="col">Nome esercizio</th>
                         <th scope="col">Attrezzatura</th>
                         <th scope="col">Gruppo allenato</th>
-            
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
-                    $count=1;
+                    $count=$excercisetypes->perPage() * ($excercisetypes->currentPage() - 1) + 1;
                     @endphp
-                    @foreach ($user->excercisetypes as $excercisetype)
+                    @foreach ($excercisetypes as $excercisetype)
                     <tr>
                         <th scope="row">{{$count++}}</th>
                         <td>{{$excercisetype->name}}</td>
@@ -47,4 +46,13 @@ I miei esercizi
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item @if ($excercisetypes->onFirstPage())
+          disabled
+      @endif"><a class="page-link" href="{{$excercisetypes->previousPageUrl()}}">Previous</a></li>
+      <li class="page-item active"><span class="page-link">Page {{$excercisetypes->currentPage()}}</span></li>
+      <li class="page-item"><a class="page-link" href="{{$excercisetypes->nextPageUrl()}}">Next</a></li>
+    </ul>
+</nav>
 @endsection

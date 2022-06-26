@@ -10,12 +10,13 @@ use Illuminate\Validation\Rule;
 
 class TemplateController extends Controller
 {
-    //
+    //mostra tutte le schede
     public function index($user_id)
     {
         $user = User::findOrFail($user_id);
+        $templates = User::find(auth()->user()->id)->templates()->paginate(20);
         if (auth()->user() == $user)
-            return view('templates.index', ['user' => $user]);
+            return view('templates.index', ['user' => $user, 'templates' => $templates]);
         else return redirect(route('home'));
     }
 

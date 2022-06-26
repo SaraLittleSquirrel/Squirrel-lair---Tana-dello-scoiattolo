@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Excercise;
 use App\Models\ExcerciseType;
+use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class ExcerciseTypeController extends Controller
 {
     public function index()
     {
-        return (view("excercisetypes.index")->with('user', auth()->user()));
+        $exercisetypes = User::find(auth()->user()->id)->excerciseTypes()->paginate(20);
+        return (view("excercisetypes.index")->with('user', auth()->user())
+        ->with('excercisetypes', $exercisetypes)
+    );
     }
 
     public function create()

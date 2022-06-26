@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExcerciseTypeController;
+use App\Http\Controllers\ExcerciseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\RegisterController;
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('user.templates',TemplateController::class);
 
 Route::resource('user.excercisetypes',ExcerciseTypeController::class);
+
+Route::resource('user.templates.excercises',ExcerciseController::class);
 
 Route::get('login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 
@@ -55,7 +58,7 @@ Route::get('/check_username', [RegisterController::class, 'checkUsername']);
 
 //da eliminare quando finito
 Route::get('/edit', function () {
-    return view('templates/excercises/create');
+    return view('templates/excercises/edit');
 });
 
 Route::get('/templates', [TemplateController::class, 'searchTemplates'])->name('search');
