@@ -12,7 +12,7 @@ Conferma eliminazione scheda
     </div>
     <div class="d-flex justify-content-center">
         <div class="col-3 d-grid mx-2">
-            <a href="{{route("user.templates.index", auth()->user())}}" class="btn btn-primary">No</a>
+            <a href="{{route("user.templates.index", auth()->user())}}" class="btn btn-outline-light border-secondary" style="color:#ce6324">No</a>
         </div>
         <div class="col-3 mx-2">
             <form action="{{route("user.templates.destroy", ['user'=>auth()->user(),

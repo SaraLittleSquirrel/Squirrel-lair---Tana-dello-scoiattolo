@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
     <p class="h1 text-center">Le schede di {{ $user->username }} </p>
 </div>
 {{-- tabella con tutte le schede --}}
+@unless ($templates->isEmpty())
 <div class="row">
     <div class="col">
         <div class="table-responsive-lg">
@@ -40,8 +41,8 @@ use Illuminate\Support\Facades\DB;
                             $template->id)->distinct()->get()->count()}}</td>
                         <td>{{$template->description}}</td>
                         <td>{{$template->is_public? 'pubblica':'privata'}}</td>
-                        <td><a href={{route("template.confirmDelete", ['user'=>auth()->user(),'template'=>$template])}}><img
-                                    src="{{asset('images/icons/trash3.svg')}}" alt="delete" /></a></td>
+                        <td><a href={{route("template.confirmDelete",
+                                ['user'=>auth()->user(),'template'=>$template])}} class="link-dark"><i class="bi bi-trash3"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -50,13 +51,34 @@ use Illuminate\Support\Facades\DB;
     </div>
 </div>
 
+{{-- navbar per andare da una pagina all'altra --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
-      <li class="page-item @if ($templates->onFirstPage())
+        <li class="page-item @if ($templates->onFirstPage())
           disabled
-      @endif"><a class="page-link" href="{{$templates->previousPageUrl()}}">Previous</a></li>
-      <li class="page-item active"><span class="page-link">Page {{$templates->currentPage()}}</span></li>
-      <li class="page-item"><a class="page-link" href="{{$templates->nextPageUrl()}}">Next</a></li>
+      @endif"><a class="page-link" style="color:#ce6324" href="{{$templates->previousPageUrl()}}">Previous</a></li>
+        <li class="page-item"><span class="page-link" style="color:#ce6324">Page {{$templates->currentPage()}}</span>
+        </li>
+        <li class="page-item"><a class="page-link" style="color:#ce6324" href="{{$templates->nextPageUrl()}}">Next</a>
+        </li>
     </ul>
 </nav>
+
+{{-- se non ci sono schede salvate --}}
+@else
+<div class="container">
+    <div class="row h2">
+        <div class="col my-3 text-center text-secondary">
+            wow, com'è vuoooto!
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{asset('images/doge.png')}}" width="100" height="100" alt="">
+        </div>
+    </div>
+</div>
+@endunless
+
+
 @endsection

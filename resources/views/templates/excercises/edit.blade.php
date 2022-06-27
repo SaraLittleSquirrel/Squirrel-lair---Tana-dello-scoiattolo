@@ -172,7 +172,7 @@ Modifica Esercizio
 
             </div>
 
-            <div class="row pt-2"><button type="submit" class="btn btn-primary btn-block" id="exSubmit">Salva
+            <div class="row pt-2"><button type="submit" class="btn btn-outline-light border-secondary btn-block" style="color:#ce6324" id="exSubmit">Salva
                     esercizio</button>
             </div>
     </form>

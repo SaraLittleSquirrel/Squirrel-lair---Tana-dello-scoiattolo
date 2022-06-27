@@ -19,6 +19,8 @@ function download() {
             },
             headStyles: {
                 halign: 'center',
+                textColor: [255,255,255],
+                fillColor: [206,99,36]
             },
             bodyStyles: {
                 halign: 'center'

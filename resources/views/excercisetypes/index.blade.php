@@ -10,6 +10,7 @@ I miei esercizi
     <p class="h1 text-center">I miei esercizi</p>
 </div>
 {{-- tabella con tutti gli esercizi --}}
+@unless ($excercisetypes->isEmpty())
 <div class="row">
     <div class="col">
         <div class="table-responsive-lg">
@@ -35,8 +36,8 @@ I miei esercizi
                         <td>{{$excercisetype->equipment}}</td>
                         <td>{{$excercisetype->trained_body_part }}</td>
                         <td>
-                            <a href={{route("excercisetype.confirmDelete", ['user'=>auth()->user(),'excercisetype'=>$excercisetype])}} class="btn btn-link">
-                                <img src="{{asset('images/icons/trash3.svg')}}" alt="delete">
+                            <a href={{route("excercisetype.confirmDelete", ['user'=>auth()->user(),'excercisetype'=>$excercisetype])}} class="btn btn-link link-dark">
+                                <i class="bi bi-trash3"></i>
                             </a>
                         </td>
                     </tr>
@@ -46,13 +47,32 @@ I miei esercizi
         </div>
     </div>
 </div>
+{{-- navbar per andare da una pagina all'altra --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
       <li class="page-item @if ($excercisetypes->onFirstPage())
           disabled
-      @endif"><a class="page-link" href="{{$excercisetypes->previousPageUrl()}}">Previous</a></li>
-      <li class="page-item active"><span class="page-link">Page {{$excercisetypes->currentPage()}}</span></li>
-      <li class="page-item"><a class="page-link" href="{{$excercisetypes->nextPageUrl()}}">Next</a></li>
+      @endif"><a class="page-link" style="color:#ce6324" href="{{$excercisetypes->previousPageUrl()}}">Previous</a></li>
+      <li class="page-item"><span class="page-link" style="color:#ce6324">Page {{$excercisetypes->currentPage()}}</span></li>
+      <li class="page-item"><a class="page-link" style="color:#ce6324" href="{{$excercisetypes->nextPageUrl()}}">Next</a></li>
     </ul>
 </nav>
+
+{{-- se non ci sono esercizi --}}
+@else
+<div class="container">
+    <div class="row h2">
+        <div class="col my-3 text-center text-secondary">
+            wow, com'è vuoooto!
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{asset('images/doge.png')}}" width="100" height="100" alt="">
+        </div>
+    </div>
+</div>
+@endunless
+
+
 @endsection

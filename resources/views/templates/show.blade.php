@@ -12,28 +12,27 @@ use App\Models\ExcerciseType;
 {{-- intestazione nome scheda + tasti --}}
 <div class="row py-2">
     <div class="col">
-        <div class=" pb-1 h1 text-center d-flex justify-content-between align-items-center">
+        <div class="pb-1 h1 text-center d-flex justify-content-between align-items-center">
             <div class="container-fluid"></div>
 
-            <div class="container-fluid" id="title_table">
+            <div class="container-fluid text-center" id="title_table">
                 {{$template->name}}
             </div>
 
             <div class="container-fluid">
                 <div class="d-flex justify-content-end">
                     <div class="p-3">
-                        <button class="btn" onclick="download()"><i class="bi bi-download"></i></button>
+                        <button class="btn btn-light border-secondary" onclick="download()"><i class="bi bi-download"></i></button>
                     </div>
                     @if ($is_owner)
                         
                     <div class="p-3">
-                        <a class="btn btn-light" href="{{route('user.templates.excercises.create', 
+                        <a class="btn btn-light border-secondary" href="{{route('user.templates.excercises.create', 
                         ['user' => auth()->user(), 'template'=>$template])}}"><i class="bi bi-plus-lg"></i></a>
                     </div>
                     <div class="p-3">
-                        <a href="{{route("template.confirmDelete",
-                            ['user'=>auth()->user(),'template'=>$template])}}"><img
-                                src="{{asset('images/icons/trash3.svg')}}" alt=""></a>
+                        <a class="btn btn-light border-secondary" href="{{route("template.confirmDelete",
+                            ['user'=>auth()->user(),'template'=>$template])}}" ><i class="bi bi-trash3"></i></a>
                     </div>
                             
                     @endif
@@ -42,6 +41,8 @@ use App\Models\ExcerciseType;
         </div>
     </div>
 </div>
+
+@unless ($template->excercises->isEmpty())
 {{-- tabella giorno-esercizi --}}
 <div class="row d-flex justify-content-center">
 
@@ -56,7 +57,7 @@ use App\Models\ExcerciseType;
                     <table class="table table-bordered" id="table_day_{{$day}}">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="6" class="text-center fs-3 text-primary">
+                                <th scope="col" colspan="6" class="text-center fs-3" style="color:#ce6324">
                                     Giorno {{$day}}
                                 </th>
                             </tr>
@@ -88,4 +89,21 @@ use App\Models\ExcerciseType;
     @endforeach
 
 </div>
+
+{{-- se non ci sono esercizi nella scheda --}}
+@else
+<div class="container">
+    <div class="row h2">
+        <div class="col my-3 text-center text-secondary">
+            wow, com'è vuoooto!
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{asset('images/doge.png')}}" width="100" height="100" alt="">
+        </div>
+    </div>
+</div>
+@endunless
+
 @endsection

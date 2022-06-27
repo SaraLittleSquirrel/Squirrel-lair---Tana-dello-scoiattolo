@@ -51,7 +51,7 @@ Sign up
                     Your password must be min 8 letter password, with upper and lower case letters
                     and a number
                 </div>
-                <div class="row pt-2 px-2"><button type="submit" class="btn btn-primary btn-block"
+                <div class="row pt-2 px-2"><button type="submit" class="btn btn-outline-light border-secondary" style="color: #ce6324"
                         id="registrationSubmit">Registrati</button></div>
             </form>
         </div>

@@ -33,11 +33,11 @@ Login
 
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                <input type="checkbox" class="form-check-input" style="color: #ce6324" id="remember" name="remember">
                 <label class="form-check-label" for="remember">Mantieni l'accesso</label>
             </div>
 
-            <div class="row pt-2 px-2"><button type="submit" class="btn btn-primary btn-block">Accedi</button></div>
+            <div class="row pt-2 px-2"><button type="submit" class="btn btn-outline-light border-secondary" style="color: #ce6324">Accedi</button></div>
         </form>
     </div>
 </div>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
         <form action="{{route('search')}}" id="formTempSearch">
             <div class="input-group">
                 <input type="search" class="form-control" id="search" name="search" placeholder="Cerca schede" value="{{request()->search}}">
-                <button type="submit" id="searchSubmit" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
+                <button type="submit" id="searchSubmit" class="btn btn-outline-light border-secondary" style="color:#ce6324"><i class="bi bi-search"></i></button>
             </div>
         </form>
     </div>
@@ -54,9 +54,9 @@ use Illuminate\Support\Facades\DB;
     <ul class="pagination">
       <li class="page-item @if ($templates->onFirstPage())
           disabled
-      @endif"><a class="page-link" href="{{$templates->previousPageUrl()}}">Previous</a></li>
-      <li class="page-item active"><span class="page-link">Page {{$templates->currentPage()}}</span></li>
-      <li class="page-item"><a class="page-link" href="{{$templates->nextPageUrl()}}">Next</a></li>
+      @endif"><a class="page-link" style="color:#ce6324" href="{{$templates->previousPageUrl()}}">Previous</a></li>
+      <li class="page-item" style="color:#ce6324"><span class="page-link" style="color:#ce6324">Page {{$templates->currentPage()}}</span></li>
+      <li class="page-item"><a class="page-link" style="color:#ce6324" href="{{$templates->nextPageUrl()}}">Next</a></li>
     </ul>
 </nav>
 

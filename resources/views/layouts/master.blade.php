@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/jspdf-autotable@3.5.25/dist/jspdf.plugin.autotable.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="{{asset('js/download.js')}}"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         @yield('title')
     </title>
@@ -88,7 +89,7 @@
                         <form method="POST" action="{{route('login.logout')}}">
                             @csrf
                             <div class="nav-link">
-                                <button type="submit" class="btn btn-link">Logout</button>
+                                <button type="submit" class="btn btn-link" style="color:#ce6324">Logout</button>
                             </div>
                         </form>
 
@@ -113,9 +114,11 @@
     <div class="container-fluid mt-3 ">
         @yield('content')
     </div>
+
     {{-- footer --}}
     <footer class="footer mt-auto">
         <div class="container-fluid">
+            <hr class="featurette-divider">
             <p>© 2021–2022 La Tana Dello Scoiattolo, Inc. · Webiste logo: Alessia De Rosa, all right reserved.</p>
         </div>
     </footer>

@@ -48,9 +48,8 @@ Home
             </p>
         </div>
     </div>
-    <hr class="featurette-divider">
 </div>
-
+<hr class="featurette-divider">
 
 {{-- citazione socrate --}}
 <div class="container-fluid">
@@ -66,7 +65,7 @@ Home
             <img src="{{asset('images/socrate.png')}}" class="img-fluid"  width="500" height="500">
         </div>
     </div>
-    <hr class="featurette-divider">
+    
 </div>
 
 @endsection

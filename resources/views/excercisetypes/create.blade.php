@@ -61,7 +61,7 @@ Inserisci esercizio
 
             </div>
 
-            <div class="row pt-2 px-2"><button type="submit" class="btn btn-primary btn-block" id="exTypeSubmit">Aggiungi esercizio</button></div>
+            <div class="row pt-2 px-2"><button type="submit" class="btn btn-outline-light border-secondary" style="color: #ce6324" id="exTypeSubmit">Aggiungi esercizio</button></div>
         </form>    
     </div>
     

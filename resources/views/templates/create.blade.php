@@ -48,7 +48,7 @@ Inserisci scheda
                 </div>
             </div>
 
-            <div class="row pt-2 px-2"><button type="submit" class="btn btn-primary btn-block" id="templateSubmit">Aggiungi
+            <div class="row pt-2 px-2"><button type="submit" class="btn btn-outline-light border-secondary" style="color:#ce6324" id="templateSubmit">Aggiungi
                     nuova scheda</button></div>
         </form>
     </div>
