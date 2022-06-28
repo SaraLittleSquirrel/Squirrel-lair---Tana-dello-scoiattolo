@@ -18,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::resource('user.templates',TemplateController::class);
 
 Route::resource('user.excercisetypes',ExcerciseTypeController::class);
@@ -42,10 +38,6 @@ Route::get('user/{user}/excercisetypes/{excercisetype}/delete', [ExcerciseTypeCo
 
 Route::get('user/{user}/templates/{template}/delete', [TemplateController::class, 'confirmDelete'])->name('template.confirmDelete')->middleware('auth');
 
-Route::get('/edit_template', function () {
-    return view('edit_template');
-});
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -55,10 +47,5 @@ Route::get('/questions', function () {
 })->name('questions');
 
 Route::get('/check_username', [RegisterController::class, 'checkUsername']);
-
-//da eliminare quando finito
-Route::get('/edit', function () {
-    return view('templates/excercises/edit');
-});
 
 Route::get('/templates', [TemplateController::class, 'searchTemplates'])->name('search');

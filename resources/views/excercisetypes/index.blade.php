@@ -13,37 +13,42 @@ I miei esercizi
 @unless ($excercisetypes->isEmpty())
 <div class="row">
     <div class="col">
-        <div class="table-responsive-lg">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome esercizio</th>
-                        <th scope="col">Attrezzatura</th>
-                        <th scope="col">Gruppo allenato</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $count=$excercisetypes->perPage() * ($excercisetypes->currentPage() - 1) + 1;
-                    @endphp
-                    @foreach ($excercisetypes as $excercisetype)
-                    <tr>
-                        <th scope="row">{{$count++}}</th>
-                        <td>{{$excercisetype->name}}</td>
-            
-                        <td>{{$excercisetype->equipment}}</td>
-                        <td>{{$excercisetype->trained_body_part }}</td>
-                        <td>
-                            <a href={{route("excercisetype.confirmDelete", ['user'=>auth()->user(),'excercisetype'=>$excercisetype])}} class="btn btn-link link-dark">
-                                <i class="bi bi-trash3"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10 col-md-10">
+                    <div class="table-responsive-lg">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome esercizio</th>
+                                    <th scope="col">Attrezzatura</th>
+                                    <th scope="col">Gruppo allenato</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $count=$excercisetypes->perPage() * ($excercisetypes->currentPage() - 1) + 1;
+                                @endphp
+                                @foreach ($excercisetypes as $excercisetype)
+                                <tr>
+                                    <th scope="row">{{$count++}}</th>
+                                    <td>{{$excercisetype->name}}</td>
+                                    <td>{{$excercisetype->equipment}}</td>
+                                    <td>{{$excercisetype->trained_body_part }}</td>
+                                    <td>
+                                        <a href={{route("excercisetype.confirmDelete", ['user'=>auth()->user(),'excercisetype'=>$excercisetype])}} class="btn btn-link link-dark py-0">
+                                            <i class="bi bi-trash3"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -12,6 +12,11 @@ $(document).ready(function () {
             $("#validationServerUsernameFeedback").html('username non può essere vuoto');
             $("#floatingUsername").addClass("is-invalid"); //mette la classe is-invalid
         }
+        else if ($("#floatingUsername").val().trim().length < 3){
+            errore = true;
+            $("#validationServerUsernameFeedback").html('username deve avere almeno 3 caratteri');
+            $("#floatingUsername").addClass("is-invalid"); //mette la classe is-invalid
+        }
         else if (usernameExists($("#floatingUsername").val().trim())) {
             errore = true;
             $("#validationServerUsernameFeedback").html('username esiste già');

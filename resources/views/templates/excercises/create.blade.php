@@ -9,7 +9,7 @@ Nuovo Esercizio
     <p class="h1 text-center">Inserisci esercizio nella scheda</p>
 </div>
 <div class="row d-flex justify-content-center">
-    <div class="col-8 py-1">
+    <div class="col-8 py-1"> 
         <form action="{{route('user.templates.excercises.store',['user' => auth()->user(), 'template'=> $template])}}" method="POST" id="formExInsert">
             @csrf
             {{-- scegli esercizio --}}
@@ -32,15 +32,11 @@ Nuovo Esercizio
             {{-- giorno --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <label class="input-group-text" for="day-train">Giorno</label>
-                <select class="form-select @error('day_training') is-invalid @enderror" name="day" id="day">
+                <select class="form-select @error('day_training') is-invalid @enderror" name="day" id="day_training">
                     <option selected disabled value="">Scegli</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                    @for ($i = 1; $i <= 7; $i++)
+                        <option value="{{$i}}">{{$i}}</option>
+                    @endfor
                 </select>
 
                 <div id="validationServerDayTrainingFeedback" class="text-danger ms-2">
@@ -168,8 +164,8 @@ Nuovo Esercizio
             <div class="row pt-2"><button type="submit" class="btn btn-outline-light border-secondary btn-block" style="color:#ce6324" id="exSubmit">Aggiungi
                     esercizio</button>
             </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 <script src="{{asset("js/excerciseinsert.js")}}"></script>
 @endsection

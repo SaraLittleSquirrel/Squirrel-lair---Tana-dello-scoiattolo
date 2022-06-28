@@ -12,30 +12,30 @@ use App\Models\ExcerciseType;
 {{-- intestazione nome scheda + tasti --}}
 <div class="row py-2">
     <div class="col">
-        <div class="pb-1 h1 text-center d-flex justify-content-between align-items-center">
-            <div class="container-fluid"></div>
-
-            <div class="container-fluid text-center" id="title_table">
-                {{$template->name}}
-            </div>
-
-            <div class="container-fluid">
-                <div class="d-flex justify-content-end">
-                    <div class="p-3">
-                        <button class="btn btn-light border-secondary" onclick="download()"><i class="bi bi-download"></i></button>
+        <div class="container-fluid pb-1 h1 text-center">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-lg-4 col-md-4"></div>
+                <div class="col-lg-4 col-md-4 text-center" id="title_table">
+                    {{$template->name}}
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="d-flex justify-content-md-end justify-content-center">
+                        <div class="p-3">
+                            <button class="btn btn-light border-secondary" onclick="download()"><i class="bi bi-download"></i></button>
+                        </div>
+                        @if ($is_owner)
+            
+                        <div class="p-3">
+                            <a class="btn btn-light border-secondary @if(auth()->user()->excerciseTypes->isEmpty()) disabled @endif " href="{{route('user.templates.excercises.create',
+                            ['user' => auth()->user(), 'template'=>$template])}}"><i class="bi bi-plus-lg"></i></a>
+                        </div>
+                        <div class="p-3">
+                            <a class="btn btn-light border-secondary" href="{{route("template.confirmDelete",
+                                ['user'=>auth()->user(),'template'=>$template])}}" ><i class="bi bi-trash3"></i></a>
+                        </div>
+                
+                        @endif
                     </div>
-                    @if ($is_owner)
-                        
-                    <div class="p-3">
-                        <a class="btn btn-light border-secondary" href="{{route('user.templates.excercises.create', 
-                        ['user' => auth()->user(), 'template'=>$template])}}"><i class="bi bi-plus-lg"></i></a>
-                    </div>
-                    <div class="p-3">
-                        <a class="btn btn-light border-secondary" href="{{route("template.confirmDelete",
-                            ['user'=>auth()->user(),'template'=>$template])}}" ><i class="bi bi-trash3"></i></a>
-                    </div>
-                            
-                    @endif
                 </div>
             </div>
         </div>
@@ -73,11 +73,15 @@ use App\Models\ExcerciseType;
                         <tbody>
                             @foreach($template->excercises->where('day',$day) as $excercise)
                             <tr>
-                                <td>{{ExcerciseType::find($excercise->excercise_type_id)->name}}</td>
+                                @if ($is_owner)
+                                <td><a href="{{route('user.templates.excercises.edit',['user'=>auth()->user(),'template'=>$template,'excercise'=>$excercise])}}" class="link-dark">{{ExcerciseType::find($excercise->excercise_type_id)->name}}</a></td>
+                                @else
+                                <td>{{ExcerciseType::find($excercise->excercise_type_id)->name}}</td> 
+                                @endif
                                 <td>{{$excercise->sets}}</td>
                                 <td>{{$excercise->rep_min}} - {{$excercise->rep_max}}</td>
                                 <td>{{$excercise->load}} {{$excercise->load_type}}</td>
-                                <td>{{$excercise->recovery_min}}' - {{$excercise->recovery_max}}'</td>
+                                <td>{{$excercise->recovery_min}}'' - {{$excercise->recovery_max}}''</td>
                                 <td>{{$excercise->progression}}</td>
                             </tr>
                             @endforeach
