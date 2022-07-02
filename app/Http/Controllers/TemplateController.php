@@ -20,11 +20,13 @@ class TemplateController extends Controller
         else return redirect(route('home'));
     }
 
+    //crea scheda    
     public function create()
     {
         return view('templates.create');
     }
 
+    //memorizza scheda
     public function store(Request $request)
     {
         $request->validate(
@@ -33,7 +35,6 @@ class TemplateController extends Controller
                 'description' => ['required', 'max:255']
             ]
         );
-
 
         $tem = new Template();
         $tem->name = $request->name;
@@ -46,8 +47,10 @@ class TemplateController extends Controller
         return (redirect(route("user.templates.index", auth()->user())));
     }
 
+    //mostra scheda
     public function show($user_id, $template_id)
     {
+        //controllo su manipolazione indirizzo url per visualizzare schede di altri
         if (Template::find($template_id)->user_id != $user_id || (!Template::find($template_id)->is_public && auth()->user()->id != $user_id)) {
             return redirect(route('home'));
         }
@@ -55,6 +58,7 @@ class TemplateController extends Controller
             ->with('is_owner', auth()->user() == Template::find($template_id)->user);
     }
 
+    //elimina scheda
     public function destroy(Request $request, $user_id, $template_id)
     {
         Template::find($template_id)->delete();
@@ -63,12 +67,13 @@ class TemplateController extends Controller
         return (redirect(route("user.templates.index", auth()->user())));
     }
 
+    //conferma eliminazione scheda
     public function confirmDelete($user_id, $template_id)
     {
-
         return view('templates.delete')->with('template', Template::find($template_id));
     }
 
+    //ricerca schede
     public function searchTemplates(Request $request)
     {
         if ($request->has('search')) {
@@ -82,7 +87,6 @@ class TemplateController extends Controller
         } else {
             $templates = Template::where('is_public', true)->simplePaginate(50);
         }
-
 
         return view('templates.search_templates')->with('templates', $templates)->with('search', $request->search);
     }

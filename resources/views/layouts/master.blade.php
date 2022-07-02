@@ -110,12 +110,12 @@
         </div>
     </nav>
 
-    <!-- contenuto della pagina -->
+    {{-- contenuto della pagina --}}
     <div class="container-fluid mt-3 ">
         @yield('content')
     </div>
 
-    {{-- footer --}}
+    {{-- footer con credits --}}
     <footer class="footer mt-auto">
         <div class="container-fluid">
             <hr class="featurette-divider">

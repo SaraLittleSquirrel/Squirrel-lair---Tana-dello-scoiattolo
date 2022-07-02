@@ -3,11 +3,11 @@ $(document).ready(function () {
 
         e.preventDefault(); //per prevenire il submit immediato
 
-        var int_reg = /^\d+$/;
+        var int_reg = /^\d+$/;  //reg ex per controllare che il valore sia numerico
 
         let errore = false; //controllo che i campi non siano vuoti o non validi
 
-        console.log(int_reg.test($('#set').val().trim()));
+        // console.log(int_reg.test($('#set').val().trim()));
 
         //esercizio non scelto
         if ($("#excercise option:selected").val() == "") {
@@ -166,7 +166,6 @@ $(document).ready(function () {
         if (!errore) {    
             $("form#formExInsert").submit();
         }
-
 
     });
 });

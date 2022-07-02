@@ -9,7 +9,8 @@ I miei esercizi
 <div class="row py-2">
     <p class="h1 text-center">I miei esercizi</p>
 </div>
-{{-- tabella con tutti gli esercizi --}}
+
+{{-- tabella con tutti gli esercizi, se ci sono --}}
 @unless ($excercisetypes->isEmpty())
 <div class="row">
     <div class="col">
@@ -52,7 +53,8 @@ I miei esercizi
         </div>
     </div>
 </div>
-{{-- navbar per andare da una pagina all'altra --}}
+
+{{-- tasti per andare da una pagina all'altra --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
       <li class="page-item @if ($excercisetypes->onFirstPage())

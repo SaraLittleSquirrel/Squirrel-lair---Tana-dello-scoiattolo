@@ -8,7 +8,7 @@ Cerca Schede
 @php
 use Illuminate\Support\Facades\DB;
 @endphp
-{{-- "le schede degli altri scoiattolini"  + barra di ricerca--}}
+{{-- "le schede dal mondo"  + barra di ricerca--}}
 <div class="row py-2 d-flex justify-content-center">
     <div class="col-lg-6 col-md-8">
         <form action="{{route('search')}}" id="formTempSearch">
@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
     </div>
     <div class="col-12 h1 text-center mt-3">Le schede dal mondo</div>
 </div>
+
 {{-- tabella con tutte le schede --}}
 <div class="row d-flex justify-content-center">
     <div class="col-lg-8 col-md-10 col-sm-11">
@@ -49,7 +50,8 @@ use Illuminate\Support\Facades\DB;
         </div>
     </div>
 </div>
-{{-- frecce per cambiare pagina --}}
+
+{{-- tasti per cambiare pagina --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
       <li class="page-item @if ($templates->onFirstPage())

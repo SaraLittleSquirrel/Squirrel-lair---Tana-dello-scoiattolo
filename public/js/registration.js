@@ -5,14 +5,15 @@ $(document).ready(function () {
         e.preventDefault(); //per prevenire il submit immediato
 
         let errore = false; //controllo che i campi non siano vuoti o non validi
-        var re = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.{8,})");
+        var re = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.{8,})"); //reg ex per controllo password
 
-        if ($("#floatingUsername").val().trim() == "") {    //username vuoto
+        //username vuoto, almeno 3 caratteri, esiste già
+        if ($("#floatingUsername").val().trim() == "") {    
             errore = true;
             $("#validationServerUsernameFeedback").html('username non può essere vuoto');
             $("#floatingUsername").addClass("is-invalid"); //mette la classe is-invalid
         }
-        else if ($("#floatingUsername").val().trim().length < 3){
+        else if ($("#floatingUsername").val().trim().length < 3){ 
             errore = true;
             $("#validationServerUsernameFeedback").html('username deve avere almeno 3 caratteri');
             $("#floatingUsername").addClass("is-invalid"); //mette la classe is-invalid
@@ -49,12 +50,10 @@ $(document).ready(function () {
             $("#validationServerPasswordConfirmFeedback").html("");
             $("#floatingPasswordConfirmation").removeClass("is-invalid"); //toglie la classe is-invalid
         }
-
-        if (!errore) {    //submitta il form
+        //submitta il form 
+        if (!errore) {    
             $("form#formRegistration").submit();
         }
-
-
     });
 });
 

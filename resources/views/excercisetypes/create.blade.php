@@ -14,6 +14,7 @@ Inserisci esercizio
     <div class="col-md-10 col-xxl-8 py-1">
         <form action="{{route('user.excercisetypes.store',auth()->user())}}" method="POST" id="formExType">
             @csrf
+            {{-- nome esercizio --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <span class="input-group-text" id="excercise_name_text">Nome esercizio</span>
                 <input type="text" class="form-control @error('exname') is-invalid @enderror" name="name" id="exname" aria-describedby="excercise_name_text">
@@ -25,7 +26,7 @@ Inserisci esercizio
                 </div>
                 
             </div>
-
+            {{-- attrezzatura --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <span class="input-group-text" id="equipment_text">Attrezzatura</span>
                 <input type="text" class="form-control @error('equipment') is-invalid @enderror" name="equipment" id="equipment" aria-describedby="equipment_text">
@@ -37,6 +38,7 @@ Inserisci esercizio
                 </div>
             
             </div>
+            {{-- gruppo muscolare allenato --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <label class="input-group-text" for="body-part">Gruppo allenato</label>
                 <select class="form-select @error('trained_body_part') is-invalid @enderror" name="trained_body_part" id="trained_body_part">
@@ -60,7 +62,7 @@ Inserisci esercizio
                 </div>
 
             </div>
-
+            {{-- submit --}}
             <div class="row pt-2 px-2"><button type="submit" class="btn btn-outline-light border-secondary" style="color: #ce6324" id="exTypeSubmit">Aggiungi esercizio</button></div>
         </form>    
     </div>

@@ -8,6 +8,8 @@ Modifica Esercizio
 <div class="row py-2">
     <p class="h1 text-center">Inserisci esercizio nella scheda</p>
 </div>
+
+{{-- form per modificare esercizio --}}
 <div class="row d-flex justify-content-center">
     <div class="col-8 py-1">
         <form
@@ -163,6 +165,7 @@ Modifica Esercizio
                 </div>
 
             </div>
+            
             {{-- salva modifiche --}}
             <div class="row pt-2"><button type="submit" class="btn btn-outline-light border-secondary btn-block"
                     style="color:#ce6324" id="exSubmit">Salva
@@ -177,7 +180,7 @@ Modifica Esercizio
             </button>
         </div>
 
-        <!-- Modal -->
+        {{-- modal per conferma eliminazione --}}
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -200,7 +203,8 @@ Modifica Esercizio
                 </div>
             </div>
         </div>
+
     </div>
 </div>
-<script src="{{asset(" js/excerciseinsert.js")}}"></script>
+<script src="{{asset("js/excerciseinsert.js")}}"></script>
 @endsection

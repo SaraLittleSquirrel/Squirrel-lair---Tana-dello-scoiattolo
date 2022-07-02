@@ -5,8 +5,8 @@ $(document).ready(function () {
 
         let errore = false; //controllo che i campi non siano vuoti o non validi
    
-
-        if ($("#tempname").val().trim() == "") {    //nome scheda vuota
+        //nome scheda vuota
+        if ($("#tempname").val().trim() == "") {    
             errore = true;
             $("#validationServerTempNameFeedback").html('dare un nome alla scheda');
             $("#tempname").addClass("is-invalid"); //mette la classe is-invalid
@@ -28,11 +28,9 @@ $(document).ready(function () {
             $("#validationServerDescriptionFeedback").html('');
             $("#descr").removeClass("is-invalid"); //toglie la classe is-invalid
         }
-
-        if (!errore) {    //submitta il form
+        //submitta il form
+        if (!errore) {    
             $("form#formTemplate").submit();
         }
-
-
     });
 });

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 <div class="row py-2">
     <p class="h1 text-center">Le schede di {{ $user->username }} </p>
 </div>
+
 {{-- tabella con tutte le schede --}}
 @unless ($templates->isEmpty())
 <div class="row">
@@ -51,7 +52,7 @@ use Illuminate\Support\Facades\DB;
     </div>
 </div>
 
-{{-- navbar per andare da una pagina all'altra --}}
+{{-- tasti per andare da una pagina all'altra --}}
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
         <li class="page-item @if ($templates->onFirstPage())

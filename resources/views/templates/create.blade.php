@@ -9,11 +9,13 @@ Inserisci scheda
 <div class="row py-2">
     <p class="h1 text-center">Inserisci scheda</p>
 </div>
+
 {{-- form per inserire la scheda --}}
 <div class="row d-flex justify-content-center">
     <div class="col-md-10 col-xxl-8 py-1">
         <form action="{{route('user.templates.store',auth()->user())}}" method="POST" id="formTemplate">
             @csrf
+            {{-- nome scheda --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <span class="input-group-text" id="template_name_text">Nome scheda</span>
                 <input type="text" class="form-control @error('tempname') is-invalid @enderror" name="name"
@@ -24,9 +26,8 @@ Inserisci scheda
                     {{$message}}
                     @enderror
                 </div>
-
             </div>
-
+            {{-- descrizione --}}
             <div class="input-group mb-3 d-flex align-items-center">
                 <span class="input-group-text" id="description_text">Descrizione</span>
                 <input type="text" class="form-control @error('descr') is-invalid @enderror" name="description"
@@ -37,13 +38,13 @@ Inserisci scheda
                     {{$message}}
                     @enderror
                 </div>
-
             </div>
+            {{-- pubblica o privata --}}
             <div class="input-group mb-3">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="is_public" value="" id="public">
                     <label class="form-check-label" for="public">
-                        Pubblica?
+                        Voglio che la mia scheda sia visibile a tutti
                     </label>
                 </div>
             </div>

@@ -5,8 +5,8 @@ $(document).ready(function () {
 
         let errore = false; //controllo che i campi non siano vuoti o non validi
    
-
-        if ($("#exname").val().trim() == "") {    //nome esercizio vuoto
+        //nome esercizio vuoto
+        if ($("#exname").val().trim() == "") {    
             errore = true;
             $("#validationServerExNameFeedback").html('dare un nome ad esercizio');
             $("#exname").addClass("is-invalid"); //mette la classe is-invalid
@@ -40,8 +40,8 @@ $(document).ready(function () {
             $("#trained_body_part").removeClass("is-invalid"); //toglie la classe is-invalid
         }
 
-
-        if (!errore) {    //submitta il form
+        //submitta il form
+        if (!errore) {    
             $("form#formExType").submit();
         }
 

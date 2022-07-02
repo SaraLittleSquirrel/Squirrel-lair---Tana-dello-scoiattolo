@@ -11,22 +11,23 @@ use Illuminate\Http\Request;
 
 class ExcerciseTypeController extends Controller
 {
+    //mostra esercizi
     public function index()
     {
         $exercisetypes = User::find(auth()->user()->id)->excerciseTypes()->paginate(20);
         return (view("excercisetypes.index")->with('user', auth()->user())
-        ->with('excercisetypes', $exercisetypes)
-    );
+        ->with('excercisetypes', $exercisetypes));
     }
 
+    //pagina creazione esercizi
     public function create()
     {
         return (view("excercisetypes.create"));
     }
 
+    //salva esercizio
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required', 'max:255', Rule::unique('excercise_types')->where(fn ($query) => $query->where('user_id', auth()->user()->id))],
             'equipment' => ['required', 'max:255'],
@@ -41,10 +42,10 @@ class ExcerciseTypeController extends Controller
 
         $et->save();
 
-
         return (redirect(route("user.excercisetypes.index", auth()->user())));
     }
 
+    //elimina esercizio
     public function destroy(Request $request, $user_id, $exercisetype_id)
     {
         ExcerciseType::find($exercisetype_id)->delete();
@@ -53,9 +54,9 @@ class ExcerciseTypeController extends Controller
         return (redirect(route("user.excercisetypes.index", auth()->user())));
     }
 
+    //conferma eliminazione esercizio
     public function confirmDelete($user_id, $exercisetype_id)
     {
-
         return view('excercisetypes.delete')->with('excercisetype', ExcerciseType::find($exercisetype_id));
     }
 }

@@ -5,11 +5,13 @@ function download() {
 
     let title = $.trim($('#title_table').text());
 
+    //titolo scheda allenamento
     doc.text(title, doc.internal.pageSize.width/2, 20, {align: 'center'});
     doc.autoTable({
         startY: 25,
     });
 
+    //tabelle giorni 
     $("[id^=table_day]").each(function (index) {
         doc.autoTable({
             html: '#' + $(this).attr('id'),

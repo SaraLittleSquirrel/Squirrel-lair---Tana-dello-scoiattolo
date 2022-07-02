@@ -146,7 +146,7 @@ Nuovo Esercizio
                 <select class="form-select @error('loadt') is-invalid @enderror" name="load_type"
                     id="load_type">
                     <option selected disabled value="">Scegli</option>
-                    <option value="%RPE">%RPE</option>
+                    <option value="%RPE">RPE</option>
                     <option value="RIR">RIR</option>
                     <option value="%RM">%RM</option>
                     <option value="kg">Kg</option>
@@ -160,7 +160,7 @@ Nuovo Esercizio
                 </div>
 
             </div>
-
+            {{-- aggiungi esercizio --}}
             <div class="row pt-2"><button type="submit" class="btn btn-outline-light border-secondary btn-block" style="color:#ce6324" id="exSubmit">Aggiungi
                     esercizio</button>
             </div>

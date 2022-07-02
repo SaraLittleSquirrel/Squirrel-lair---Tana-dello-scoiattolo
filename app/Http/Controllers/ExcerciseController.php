@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 
 class ExcerciseController extends Controller
 {
+    //creazione esercizio per scheda
     public function create($user_id, $template_id)
-    {
-        
+    {   
         return view('templates.excercises.create')->with('user', User::find($user_id))
         ->with('template', Template::find($template_id))
         ->with('excercise_types', User::find($user_id)->excerciseTypes);
     }
     
+    //salva esercizio
     public function store(Request $request, $user_id, $template_id)
     {
         $excercise  = new Excercise;
@@ -35,10 +36,9 @@ class ExcerciseController extends Controller
         $excercise -> save();
 
         return (redirect(route("user.templates.show", ['user' => auth()->user(), 'template' => Template::find($template_id)])));
-
-
     }
 
+    //passo esercizio per modifica
     public function edit($user_id, $template_id, $excercise_id)
     {
         return view('templates.excercises.edit')->with('user', User::find($user_id))
@@ -47,6 +47,7 @@ class ExcerciseController extends Controller
         ->with('excercise',Excercise::find($excercise_id));
     }
 
+    //salva modifica
     public function update(Request $request, $user_id, $template_id, $excercise_id)
     {
         $excercise  = Excercise::find($excercise_id);
@@ -69,6 +70,7 @@ class ExcerciseController extends Controller
 
     }
 
+    //togli esercizio dalla scheda
     public function destroy(Request $request, $user_id, $template_id, $excercise_id)
     {
         Excercise::find($excercise_id)->delete();

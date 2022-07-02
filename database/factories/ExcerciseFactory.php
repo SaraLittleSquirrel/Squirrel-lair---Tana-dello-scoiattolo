@@ -18,7 +18,7 @@ class ExcerciseFactory extends Factory
     {
         $rep_min = rand(1, 10);
         $rep_max = rand($rep_min, 12);
-        $rec_min = rand(30,180);
+        $rec_min = rand(30,180);        /** tempi di recupero in secondi */
         $rec_max=rand($rec_min,300);
 
         return [
