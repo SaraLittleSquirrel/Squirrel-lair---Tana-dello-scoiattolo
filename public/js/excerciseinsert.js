@@ -7,8 +7,6 @@ $(document).ready(function () {
 
         let errore = false; //controllo che i campi non siano vuoti o non validi
 
-        // console.log(int_reg.test($('#set').val().trim()));
-
         //esercizio non scelto
         if ($("#excercise option:selected").val() == "") {
             errore = true;
@@ -87,7 +85,7 @@ $(document).ready(function () {
             $("#validationServerRepMaxFeedback").html('deve essere un numero');
             $("#rep_max").addClass("is-invalid"); //mette la classe is-invalid
         }
-        else if(($('#rep_max').val().trim()) < ($('#rep_min').val().trim())){
+        else if((parseInt($('#rep_max').val().trim())) < (parseInt($('#rep_min').val().trim()))){
             errore = true;
             $("#validationServerRepMaxFeedback").html('le ripetizioni max devono essere > di quelle min');
             $("#rep_max").addClass("is-invalid"); //mette la classe is-invalid
@@ -125,7 +123,7 @@ $(document).ready(function () {
             $("#validationServerRecMaxFeedback").html('deve essere un numero');
             $("#rec_max").addClass("is-invalid"); //mette la classe is-invalid
         }
-        else if(($('#rec_max').val().trim()) < ($('#rec_min').val().trim())){
+        else if((parseInt($('#rec_max').val().trim())) < (parseInt($('#rec_min').val().trim()))){
             errore = true;
             $("#validationServerRecMaxFeedback").html('il recupero max deve essere > di quello min');
             $("#rec_max").addClass("is-invalid"); //mette la classe is-invalid

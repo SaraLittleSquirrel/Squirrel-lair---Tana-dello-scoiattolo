@@ -29,7 +29,6 @@ class LoginController extends Controller
         if (auth()->attempt($attributes, $remember_me)) {
             return redirect(route('user.templates.index', ['user' => auth()->user()->id]));
         }
-
         throw ValidationException::withMessages([
             'username' => 'Wrong credentials'
         ]);

@@ -106,7 +106,7 @@ Nuovo Esercizio
             <div class="input-group mb-3 d-flex align-items-center">
                 <span class="input-group-text" id="recmin_text">Rec min</span>
                 <input type="text" class="form-control @error('rcmin') is-invalid @enderror" name="recovery_min" id="rec_min"
-                    aria-describedby="repcin_text">
+                    aria-describedby="recmin_text">
 
                 <div id="validationServerRecMinFeedback" class="text-danger ms-2">
                     @error('rcmin')
@@ -117,7 +117,7 @@ Nuovo Esercizio
             </div>
             {{-- rec max --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <span class="input-group-text" id="rcmax_text">Rec max</span>
+                <span class="input-group-text" id="recmax_text">Rec max</span>
                 <input type="text" class="form-control @error('rcmax') is-invalid @enderror" name="recovery_max" id="rec_max"
                     aria-describedby="recmax_text">
 

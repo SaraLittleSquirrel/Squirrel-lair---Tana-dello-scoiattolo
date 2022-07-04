@@ -15,6 +15,7 @@ class TemplateController extends Controller
     {
         $user = User::findOrFail($user_id);
         $templates = User::find(auth()->user()->id)->templates()->paginate(20);
+        //controllo su manipolazione indirizzo url per visualizzare schede di altri
         if (auth()->user() == $user)
             return view('templates.index', ['user' => $user, 'templates' => $templates]);
         else return redirect(route('home'));
@@ -47,7 +48,7 @@ class TemplateController extends Controller
         return (redirect(route("user.templates.index", auth()->user())));
     }
 
-    //mostra scheda
+    //mostra scheda singola
     public function show($user_id, $template_id)
     {
         //controllo su manipolazione indirizzo url per visualizzare schede di altri
@@ -77,7 +78,6 @@ class TemplateController extends Controller
     public function searchTemplates(Request $request)
     {
         if ($request->has('search')) {
-            // $templates = Template::where('is_public', true)->where('name', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')->simplePaginate(50)->withQueryString();
 
             $templates = Template::where('is_public', true)
                 ->where(function ($query) {

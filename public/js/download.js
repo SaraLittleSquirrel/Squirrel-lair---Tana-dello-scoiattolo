@@ -31,5 +31,6 @@ function download() {
         });
     });
 
+    //scarica documento
     doc.save();
 }
