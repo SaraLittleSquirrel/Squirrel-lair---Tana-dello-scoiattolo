@@ -6,6 +6,7 @@ Sign up
 
 @section('content')
 <div class="container-fluid">
+    {{-- "Registrati" --}}
     <div class="row py-2">
         <p class="h1 text-center">Registrati</p>
     </div>
@@ -51,6 +52,7 @@ Sign up
                         @enderror
                     </div>
                 </div>
+                {{-- come dev'essere la password --}}
                 <div class="form-text mb-2">
                     Your password must be min 8 letter password, with upper and lower case letters
                     and a number

@@ -6,7 +6,7 @@ Modifica Esercizio
 
 @section('content')
 <div class="row py-2">
-    <p class="h1 text-center">Inserisci esercizio nella scheda</p>
+    <p class="h1 text-center">Modifica esercizio nella scheda</p>
 </div>
 
 {{-- form per modificare esercizio --}}

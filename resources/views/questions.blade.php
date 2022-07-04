@@ -5,10 +5,11 @@ F.A.Q.
 @endsection
 
 @section('content')
+{{-- "FAQ" --}}
 <div class="row-fluid mb-3">
     <div class="display-2">F.A.Q.</div>
 </div>
-
+{{-- accordion domande --}}
 <div class="row-fluid">
     <div class="accordion" id="accordionQuestions">
         {{-- domanda 1 Cosa si può fare sul sito--}}

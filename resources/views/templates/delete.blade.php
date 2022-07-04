@@ -10,10 +10,13 @@ Conferma eliminazione scheda
     <div class="col-12 py-2 my-2 text-center">
         Sei sicuro di voler eliminare la scheda?   
     </div>
+    {{-- tasti --}}
     <div class="d-flex justify-content-center">
+        {{-- ritorno alla pag precedente se clicco no --}}
         <div class="col-3 d-grid mx-2">
             <a href="{{route("user.templates.index", auth()->user())}}" class="btn btn-outline-light border-secondary" style="color:#ce6324">No</a>
         </div>
+        {{-- elimina esercizio e ritorna all'index se clicco sì --}}
         <div class="col-3 mx-2">
             <form action="{{route("user.templates.destroy", ['user'=>auth()->user(),
                 'template'=>$template])}}" method="POST" class="d-grid">

@@ -150,7 +150,6 @@ Nuovo Esercizio
                     <option value="RIR">RIR</option>
                     <option value="%RM">%RM</option>
                     <option value="kg">Kg</option>
-     
                 </select>
 
                 <div id="validationServerLoadTypeFeedback" class="text-danger ms-2">

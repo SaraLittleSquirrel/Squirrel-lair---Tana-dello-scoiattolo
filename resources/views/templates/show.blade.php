@@ -15,16 +15,19 @@ use App\Models\ExcerciseType;
         <div class="container-fluid pb-1 h1 text-center">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-lg-4 col-md-4"></div>
+                {{-- nome scheda --}}
                 <div class="col-lg-4 col-md-4 text-center" id="title_table">
                     {{$template->name}}
                 </div>
+                {{-- tasti --}}
                 <div class="col-lg-4 col-md-4">
                     <div class="d-flex justify-content-md-end justify-content-center">
+                        {{-- download --}}
                         <div class="p-3">
                             <button class="btn btn-light border-secondary" onclick="download()"><i class="bi bi-download"></i></button>
                         </div>
                         @if ($is_owner)
-            
+                        {{-- aggiungi esercizio ed elimina --}}
                         <div class="p-3">
                             <a class="btn btn-light border-secondary @if(auth()->user()->excerciseTypes->isEmpty()) disabled @endif " href="{{route('user.templates.excercises.create',
                             ['user' => auth()->user(), 'template'=>$template])}}"><i class="bi bi-plus-lg"></i></a>
@@ -33,7 +36,6 @@ use App\Models\ExcerciseType;
                             <a class="btn btn-light border-secondary" href="{{route("template.confirmDelete",
                                 ['user'=>auth()->user(),'template'=>$template])}}" ><i class="bi bi-trash3"></i></a>
                         </div>
-                
                         @endif
                     </div>
                 </div>

@@ -5,6 +5,7 @@ Login
 @endsection
 
 @section('content')
+{{-- "Accedi" --}}
 <div class="row py-2">
     <p class="h1 text-center">Accedi</p>
 </div>
