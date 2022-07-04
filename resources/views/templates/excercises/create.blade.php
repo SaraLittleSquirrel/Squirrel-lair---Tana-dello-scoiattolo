@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
 @section('title')
-Nuovo Esercizio
+Inserisci Esercizio
 @endsection
 
 @section('content')
+{{-- "inserisci esercizio" --}}
 <div class="row py-2">
-    <p class="h1 text-center">Inserisci esercizio nella scheda</p>
+    <p class="h1 text-center">Inserisci esercizio</p>
 </div>
+{{-- form per inserire esercizio in scheda --}}
 <div class="row d-flex justify-content-center">
     <div class="col-8 py-1"> 
         <form action="{{route('user.templates.excercises.store',['user' => auth()->user(), 'template'=> $template])}}" method="POST" id="formExInsert">

@@ -55,14 +55,13 @@ Home
 <div class="container-fluid">
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">Il nostro motto. <br><span class="text-muted">Ciò che ci ispira ad andare
-                    avanti.</span></h2>
+            <h2 class="featurette-heading">Il nostro motto. <br><span class="text-muted">Uno spunto dal passato.</span></h2>
             <p class="lead">Nessun uomo ha il diritto di essere un dilettante in materia di preparazione fisica. E' una vergogna per
                 un uomo invecchiare senza vedere la bellezza e la forza di cui il suo corpo è capace. <br>-Socrate
             </p>
         </div>
         <div class="col-md-5">
-            <img src="{{asset('images/socrate.png')}}" class="img-fluid"  width="500" height="500">
+            <img src="{{asset('images/socrate.png')}}" class="img-fluid float-end" width="500" height="500">
         </div>
     </div>
     

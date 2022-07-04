@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 });
 
-//controllo se l'username esiste già. Con ajax non asincrono
+//controllo se l'username esiste già. 
 function usernameExists(username) {
     $.ajaxSetup({
         headers: {

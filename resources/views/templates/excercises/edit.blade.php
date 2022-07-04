@@ -5,10 +5,10 @@ Modifica Esercizio
 @endsection
 
 @section('content')
+{{-- "modifica esercizio" --}}
 <div class="row py-2">
-    <p class="h1 text-center">Modifica esercizio nella scheda</p>
+    <p class="h1 text-center">Modifica esercizio</p>
 </div>
-
 {{-- form per modificare esercizio --}}
 <div class="row d-flex justify-content-center">
     <div class="col-8 py-1">
@@ -151,7 +151,7 @@ Modifica Esercizio
                 <label class="input-group-text" for="load-type">Tipo di carico</label>
                 <select class="form-select @error('loadt') is-invalid @enderror" name="load_type" id="load_type">
                     <option selected disabled value="">Scegli</option>
-                    <option value="%RPE" {{$excercise->load_type == '%RPE' ? 'selected' : ''}}>%RPE</option>
+                    <option value="%RPE" {{$excercise->load_type == '%RPE' ? 'selected' : ''}}>RPE</option>
                     <option value="RIR" {{$excercise->load_type == 'RIR' ? 'selected' : ''}}>RIR</option>
                     <option value="%RM" {{$excercise->load_type == '%RM' ? 'selected' : ''}}>%RM</option>
                     <option value="kg" {{$excercise->load_type == 'kg' ? 'selected' : ''}}>Kg</option>
