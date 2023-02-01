@@ -19,7 +19,7 @@ Modifica Esercizio
             @method('PUT')
             {{-- scegli esercizio --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <label class="input-group-text" for="body-part">Scegli esercizio</label>
+                <label class="input-group-text" for="body-part">Scegli esercizio*</label>
                 <select class="form-select @error('excercise') is-invalid @enderror" name="excercise" id="excercise">
                     <option selected disabled value="">Scegli</option>
                     @foreach ($excercise_types as $excercise_type)
@@ -37,7 +37,7 @@ Modifica Esercizio
             </div>
             {{-- giorno --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <label class="input-group-text" for="day-train">Giorno</label>
+                <label class="input-group-text" for="day-train">Giorno*</label>
                 <select class="form-select @error('day_training') is-invalid @enderror" name="day" id="day">
                     <option selected disabled value="">Scegli</option>
                     @for ($i = 1; $i <= 7; $i++) <option value="{{$i}}" {{$excercise->day == $i ? 'selected' : ''}}>
@@ -54,7 +54,7 @@ Modifica Esercizio
             </div>
             {{-- numero serie --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <span class="input-group-text" id="sets_text">Numero Serie</span>
+                <span class="input-group-text" id="sets_text">Numero Serie*</span>
                 <input type="text" class="form-control @error('sets') is-invalid @enderror" name="sets" id="set"
                     aria-describedby="sets_num_text" value="{{$excercise->sets}}">
 
@@ -84,7 +84,7 @@ Modifica Esercizio
             </div>
             {{-- rep min --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <span class="input-group-text" id="repmin_text">Rep min</span>
+                <span class="input-group-text" id="repmin_text">Rep min*</span>
                 <input type="text" class="form-control @error('rpmin') is-invalid @enderror" name="rep_min" id="rep_min"
                     aria-describedby="repmin_text" value="{{$excercise->rep_min}}">
 
@@ -97,7 +97,7 @@ Modifica Esercizio
             </div>
             {{-- rep max --}}
             <div class="input-group mb-3 d-flex align-items-center">
-                <span class="input-group-text" id="rpmax_text">Rep max</span>
+                <span class="input-group-text" id="rpmax_text">Rep max*</span>
                 <input type="text" class="form-control @error('rpmax') is-invalid @enderror" name="rep_max" id="rep_max"
                     aria-describedby="repmax_text" value="{{$excercise->rep_max}}">
 

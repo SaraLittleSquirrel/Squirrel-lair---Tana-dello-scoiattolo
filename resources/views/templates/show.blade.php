@@ -83,7 +83,11 @@ use App\Models\ExcerciseType;
                                 <td>{{$excercise->sets}}</td>
                                 <td>{{$excercise->rep_min}} - {{$excercise->rep_max}}</td>
                                 <td>{{$excercise->load}} {{$excercise->load_type}}</td>
-                                <td>{{$excercise->recovery_min}}'' - {{$excercise->recovery_max}}''</td>
+                                <td>
+                                    @if ($excercise->recovery_min != null)
+                                    {{$excercise->recovery_min}}'' - {{$excercise->recovery_max}}''
+                                    @endif
+                                </td>
                                 <td>{{$excercise->progression}}</td>
                             </tr>
                             @endforeach

@@ -47,7 +47,7 @@ $(document).ready(function () {
         }
 
         //progressione non scelta
-        if ($("#progression option:selected").val() == "") {
+        /*if ($("#progression option:selected").val() == "") {
             errore = true;
             $("#validationServerProgressionSchemeFeedback").html("scegliere progressione");
             $("#progression").addClass("is-invalid"); //mette la classe is-invalid
@@ -55,7 +55,7 @@ $(document).ready(function () {
         else{
             $("#validationServerProgressionSchemeFeedback").html('');
             $("#progression").removeClass("is-invalid"); //toglie la classe is-invalid
-        }
+        }*/
 
         //rep min vuoto - valore numerico
         if ($("#rep_min").val().trim() == "") {
@@ -96,7 +96,7 @@ $(document).ready(function () {
         }
 
         //rec min vuoto - valore numerico
-        if ($("#rec_min").val().trim() == "") {
+        /*if ($("#rec_min").val().trim() == "") {
             errore = true;
             $("#validationServerRecMinFeedback").html('inserire recupero min');
             $("#rec_min").addClass("is-invalid"); //mette la classe is-invalid
@@ -110,10 +110,10 @@ $(document).ready(function () {
         else{
             $("#validationServerRecMinFeedback").html('');
             $("#rec_min").removeClass("is-invalid"); //toglie la classe is-invalid
-        }
+        }*/
 
         //rec max vuoto - valore numerico - < rec min
-        if ($("#rec_max").val().trim() == "") {
+        /*if ($("#rec_max").val().trim() == "") {
             errore = true;
             $("#validationServerRecMaxFeedback").html('inserire recupero max');
             $("#rec_max").addClass("is-invalid"); //mette la classe is-invalid
@@ -131,10 +131,9 @@ $(document).ready(function () {
         else{
             $("#validationServerRecMaxFeedback").html('');
             $("#rec_max").removeClass("is-invalid"); //toglie la classe is-invalid
-        }
-
+        }*/
         //carico vuoto - valore numerico
-        if ($("#load").val().trim() == "") {
+        /*if ($("#load").val().trim() == "") {
             errore = true;
             $("#validationServerLoadFeedback").html('inserire carico');
             $("#load").addClass("is-invalid"); //mette la classe is-invalid
@@ -147,10 +146,10 @@ $(document).ready(function () {
         else{
             $("#validationServerLoadFeedback").html('');
             $("#load").removeClass("is-invalid"); //toglie la classe is-invalid
-        }
+        }*/
 
         // tipo di carico non scelto
-        if ($("#load_type option:selected").val() == "") {
+        /*if ($("#load_type option:selected").val() == "") {
             errore = true;
             $("#validationServerLoadTypeFeedback").html("scegliere tipo di carico");
             $("#load_type").addClass("is-invalid"); //mette la classe is-invalid
@@ -158,7 +157,7 @@ $(document).ready(function () {
         else{
             $("#validationServerLoadTypeFeedback").html('');
             $("#load_type").removeClass("is-invalid"); //toglie la classe is-invalid
-        }
+        }*/
 
         //submitta il form se non ci sono errori
         if (!errore) {    

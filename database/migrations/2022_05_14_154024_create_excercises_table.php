@@ -22,13 +22,13 @@ return new class extends Migration
             $table->foreignIdFor(ExcerciseType::class);
             $table->enum('day',[1,2,3,4,5,6,7]);
             $table->integer('sets');
-            $table->enum('progression',['wave','doppia']);
+            $table->enum('progression',['wave','doppia'])->nullable();
             $table->integer('rep_min');
             $table->integer('rep_max');
-            $table->integer('recovery_min');
-            $table->integer('recovery_max');
-            $table->integer('load');
-            $table->enum('load_type',['%RPE','RIR','%RM','kg']);
+            $table->integer('recovery_min')->nullable();
+            $table->integer('recovery_max')->nullable();
+            $table->integer('load')->nullable();
+            $table->enum('load_type',['%RPE','RIR','%RM','kg'])->nullable();
         });
     }
 
